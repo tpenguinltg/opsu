@@ -32,6 +32,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.security.AccessController;
@@ -373,9 +374,9 @@ public class SoundStore {
 						new float[] { 0.0f, 0.0f, 0.0f });
 				FloatBuffer listenerPos = BufferUtils.createFloatBuffer(3).put(
 						new float[] { 0.0f, 0.0f, 0.0f });
-				listenerPos.flip();
-				listenerVel.flip();
-				listenerOri.flip();
+				((Buffer)listeeterPos).flip();
+				((Buffer)listenerVel).flip();
+				((Buffer)listenerOri).flip();
 				AL10.alListener(AL10.AL_POSITION, listenerPos);
 				AL10.alListener(AL10.AL_VELOCITY, listenerVel);
 				AL10.alListener(AL10.AL_ORIENTATION, listenerOri);
